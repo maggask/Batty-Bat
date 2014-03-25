@@ -11,8 +11,6 @@ This game project has the following:
 ## Setup
 
 ```
-npm install
-bower install
-grunt server
+python -m SimpleHTTPServer
 ```
 
