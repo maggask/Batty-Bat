@@ -10,6 +10,7 @@ window.Player = (function() {
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
+	var gravity = 0;
 
 	var Player = function(el, game) {
 		this.el = el;
@@ -26,34 +27,32 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
-		if (Controls.keys.down) {
-			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
+		
+		if (Controls.keys.up || Controls.keys.space) {
 			this.pos.y -= delta * SPEED;
+			gravity = 0;
 		}
+
+		if (this.pos.angle < 20)
+			this.pos.angle += 1;
+
+		this.pos.y += (delta * SPEED/10) * gravity/2;
 
 		this.checkCollisionWithBounds();
 
 		// Update UI
 		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		gravity++;
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
-		if (this.pos.x < 0 ||
-			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-			this.pos.y < 0 ||
-			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+		if (this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
+			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT_WITH_GROUND) {
 			return this.game.gameover();
 		}
 	};
 
 	return Player;
-
+//this.pos.x < 0 ||
+//this.pos.y < 0 ||
 })();

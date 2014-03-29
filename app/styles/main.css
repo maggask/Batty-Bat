@@ -2,11 +2,14 @@
 position: absolute;
 top: 0;
 left: 0;
-width: 5em;
-height: 5em;
-background: blue;
+width: 8em;
+height: 6em;
+background: url("/images/flappybird.png");
+overflow: hidden;
 }
-
+.Player-sprite {
+	background: url("/images/flappybirdnofly.png");
+}
 .Scoreboard {
 position: absolute;
 left: 50%;
@@ -45,6 +48,7 @@ color: white;
 
 body {
 background: black;
+overflow: hidden;
 }
 
 .browsehappy {
@@ -52,6 +56,45 @@ margin: 0.2em 0;
 background: #ccc;
 color: #000;
 padding: 0.2em 0;
+}
+
+.Ground {
+position: relative;
+top: 48.2em;
+height: 10em;
+width: 107em;
+background: url("/images/ground.png");
+animation: groundMoveLeft linear 1s infinite;
+-webkit-animation: groundMoveLeft linear 1s infinite; 
+-moz-animation: groundMoveLeft linear 1s infinite;
+}
+@keyframes groundMoveLeft {
+	0% {right: 0em;}
+	100% {right: 4.6em;}
+}
+@-webkit-keyframes groundMoveLeft {
+	0% {right: 0em;}
+	100% {right: 4.6em;}
+}
+@-webkit-keyframes groundMoveLeft {
+	0% {right: 0em;}
+	100% {right: 4.6em;}
+}
+
+.BottomPipe {
+position: relative;
+top: 18.2em;
+width: 5.2em;
+height: 20em;
+background: url("/images/redpipebottom.png");
+}
+
+.TopPipe {
+position: relative;
+top: 30em;
+width: 5.2em;
+height: 30em;
+background: url("/images/redpipetop.png");
 }
 
 .GameCanvas {
@@ -64,5 +107,5 @@ height: 57.6em;
 margin-left: -51.2em;
 margin-top: -28.8em;
 overflow: hidden;
-background: red;
+background: url("/images/backgroundDay.png");	
 }​

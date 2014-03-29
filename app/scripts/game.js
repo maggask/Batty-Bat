@@ -1,17 +1,20 @@
 
 window.Game = (function() {
 	'use strict';
-
+	//this.state = 0;
 	/**
 	 * Main game class.
 	 * @param {Element} el jQuery element containing the game.
 	 * @constructor
 	 */
+	var Controls = window.Controls;
+
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
+		//this.pipeBot = new window.Pipes(this.el.find('.BottomPipe'), this);
+		//this.pipeTop = new window.Pipes(this.el.find('.TopPipe'), this);
 		this.isPlaying = false;
-
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
 	};
@@ -32,7 +35,7 @@ window.Game = (function() {
 		this.lastFrame = now;
 
 		// Update game entities.
-		this.player.onFrame(delta);
+			this.player.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -80,6 +83,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
+	Game.prototype.WORLD_HEIGHT_WITH_GROUND = 48.2;
 
 	return Game;
 })();
