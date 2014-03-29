@@ -7,8 +7,21 @@ height: 6em;
 background: url("/images/flappybird.png");
 overflow: hidden;
 }
+
+.Player.is-jumping {
+	-webkit-animation: 0.5s jump-animation step-end;
+}
+@-webkit-keyframes jump-animation {
+	0% {background: url("/images/flappybird.png");
+		transform: translate3d(0, 0, 0);}
+	50% {background: url("/images/flappybirdnofly.png");
+		transform: translate3d(-10em, 0, 0);}
+	100% {background: url("/images/flappybirdflying.png");
+		transform: translate3d(-20em, 0, 0);}
+}
 .Player-sprite {
 	background: url("/images/flappybirdnofly.png");
+	-webkit-transition-timing-function: step-end;
 }
 .Scoreboard {
 position: absolute;
@@ -83,17 +96,17 @@ animation: groundMoveLeft linear 1s infinite;
 
 .BottomPipe {
 position: relative;
-top: 18.2em;
+top: -9em;
 width: 5.2em;
-height: 20em;
+height: 15.4em;
 background: url("/images/redpipebottom.png");
 }
 
 .TopPipe {
 position: relative;
-top: 30em;
+top: -19em;
 width: 5.2em;
-height: 30em;
+height: 31.81em;
 background: url("/images/redpipetop.png");
 }
 

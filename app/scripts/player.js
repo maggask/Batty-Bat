@@ -33,8 +33,13 @@ window.Player = (function() {
 			gravity = 0;
 		}
 
-		if (this.pos.angle < 20)
-			this.pos.angle += 1;
+		var jumping = this.el.find('.Player');
+		jumping
+			.addClass('is-jumping')
+			.find('.Player-sprite')
+				.one('click', function() {
+					jumping.removeClass('is-jumping');
+				});
 
 		this.pos.y += (delta * SPEED/10) * gravity/2;
 
@@ -53,6 +58,4 @@ window.Player = (function() {
 	};
 
 	return Player;
-//this.pos.x < 0 ||
-//this.pos.y < 0 ||
 })();
