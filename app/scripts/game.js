@@ -92,24 +92,35 @@ $(document).ready(function() {
 	var backgroundMusic;
 
 	function init() {
+		console.log("init");
+		$(".play").hide();
 		backgroundMusic = $("audio")[0];
 		backgroundMusic.play();
 	}
 
-	function sound() {
-		$("#play").hide();
+	init();
+});
+
+$(".sound").click(function() {
+	var backgroundMusic;
+	backgroundMusic = $("audio")[0];
+
+	function play() {
+		console.log("play");
+		$(".play").hide();
 		backgroundMusic.play();
-		$("#mute").show();
+		$(".mute").show();
 	}
 
 	function mute() {
-		$("#mute").hide();
+		console.log("mute");
+		$(".mute").hide();
 		backgroundMusic.pause();
-		$("#play").show();
+		$(".play").show();
 	}
 
-	init();
-	$('#play').on('click', sound );
-	$('#mute').on('click', mute );
+	
+	$('.play').on('click', play );
+	$('.mute').on('click', mute );
 });
 

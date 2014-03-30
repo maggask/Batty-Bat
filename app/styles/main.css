@@ -227,3 +227,10 @@ body {
 	overflow: hidden;
 	background: url("/images/backgroundCity.png");	
 }​
+
+.sound, .mute, .play {
+	position: relative;
+	top: -95em;
+	width: 3em;
+	height: 3em;
+}
