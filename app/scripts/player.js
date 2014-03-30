@@ -29,6 +29,7 @@ window.Player = (function() {
 	Player.prototype.onFrame = function(delta) {
 		
 		if (Controls.keys.up || Controls.keys.space) {
+			console.log(Controls.keys.space);
 			this.pos.y -= delta * SPEED;
 			gravity = 0;
 		}

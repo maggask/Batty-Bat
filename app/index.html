@@ -19,12 +19,26 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
-    <body>
-        <!--[if lt IE 10]>
+        <body>
+            <audio loop="loop" volume=0.2 id="gameMusic">
+                <source  src="music/Zelda.mp3" type="audio/mp3" />
+                <source  src="music/Zelda.ogg" type="audio/ogg" />
+            </audio>
+            
+            <div id="play">  
+                <img src = "images/flappybird.png" alt = "Draw line" height="42" width="42" />
+            </div>
+
+            <div id="mute">  
+                <img src = "images/cloud.png" alt = "Draw line" height="42" width="42" />
+            </div>
+
+<!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
         <div class="GameCanvas">
+            
             <div class="Ground"></div>
             <div class="Clouds"></div>
             <div class="TopPipe"></div>

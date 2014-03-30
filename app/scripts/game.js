@@ -1,4 +1,5 @@
 
+
 window.Game = (function() {
 	'use strict';
 	//this.state = 0;
@@ -8,7 +9,6 @@ window.Game = (function() {
 	 * @constructor
 	 */
 	var Controls = window.Controls;
-
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
@@ -88,4 +88,28 @@ window.Game = (function() {
 	return Game;
 })();
 
+$(document).ready(function() {
+	var backgroundMusic;
+
+	function init() {
+		backgroundMusic = $("audio")[0];
+		backgroundMusic.play();
+	}
+
+	function sound() {
+		$("#play").hide();
+		backgroundMusic.play();
+		$("#mute").show();
+	}
+
+	function mute() {
+		$("#mute").hide();
+		backgroundMusic.pause();
+		$("#play").show();
+	}
+
+	init();
+	$('#play').on('click', sound );
+	$('#mute').on('click', mute );
+});
 

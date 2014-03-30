@@ -129,3 +129,7 @@ body {
 	overflow: hidden;
 	background: url("/images/backgroundDay.png");	
 }​
+
+.backgroundMusic {
+	background: url("/images/cloud.png");
+}
