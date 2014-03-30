@@ -5,6 +5,7 @@ window.Pipe = (function() {
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
 	};
+	
 	Pipe.prototype.create = function() {
 
 	};

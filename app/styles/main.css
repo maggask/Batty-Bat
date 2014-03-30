@@ -70,48 +70,144 @@ body {
 	color: #000;
 	padding: 0.2em 0;
 }
-.Clouds {
+
+.Cloud5 {
 	position: relative;
-	left: 80em;
+	top: -3em;
+	height: 5em;
+	width: 6em;
+	background: url("/images/cloud3.png");
+	-webkit-animation: cloud5MoveLeft linear 30s infinite;
+	-moz-animation: cloud5MoveLeft linear 30s infinite;
+}
+@-webkit-keyframes cloud5MoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+@-moz-keyframes cloud5MoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+
+.Cloud4 {
+	position: relative;
+	top: -7em;
+	height: 5em;
+	width: 6em;
+	background: url("/images/cloud3.png");
+	-webkit-animation: cloud4MoveLeft linear 26s infinite;
+	-moz-animation: cloud4MoveLeft linear 26s infinite;
+}
+@-webkit-keyframes cloud4MoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+@-moz-keyframes cloud4MoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+
+.Cloud3 {
+	position: relative;
+	top: -5em;
+	height: 5em;
+	width: 6em;
+	background: url("/images/cloud3.png");
+	-webkit-animation: cloud3MoveLeft linear 20s infinite;
+	-moz-animation: cloud3MoveLeft linear 20s infinite;
+}
+@-webkit-keyframes cloud3MoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+@-moz-keyframes cloud3MoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+
+.Cloud {
+	position: relative;
 	top: 0em;
 	height: 6em;
-	width: 7.5em;
+	width: 7.2em;
 	background: url("/images/cloud.png");
+	-webkit-animation: cloudMoveLeft linear 12s infinite;
+	-moz-animation: cloudMoveLeft linear 12s infinite;
 }
+@-webkit-keyframes cloudMoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+@-moz-keyframes cloudMoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+
+.Cloud1 {
+	position: relative;
+	top: -7em;
+	height: 7em;
+	width: 8.2em;
+	background: url("/images/cloud1.png");
+	-webkit-animation: cloud1MoveLeft linear 18s infinite;
+	-moz-animation: cloud1MoveLeft linear 18s infinite;
+}
+@-webkit-keyframes cloud1MoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+@-moz-keyframes cloud1MoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+
+.Cloud2 {
+	position: relative;
+	top: -5em;
+	height: 8.5em;
+	width: 9.8em;
+	background: url("/images/cloud2.png");
+	-webkit-animation: cloud2MoveLeft linear 14s infinite;
+	-moz-animation: cloud2MoveLeft linear 14s infinite;
+}
+@-webkit-keyframes cloud2MoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+@-moz-keyframes cloud2MoveLeft {
+	0% {right: -109em;}
+	100% {right: 100em;}
+}
+
 .Ground {
 	position: relative;
-	top: 48.2em;
-	height: 10em;
-	width: 107em;
-	background: url("/images/ground.png");
-	animation: groundMoveLeft linear 1s infinite;
-	-webkit-animation: groundMoveLeft linear 1s infinite; 
-	-moz-animation: groundMoveLeft linear 1s infinite;
-}
-@keyframes groundMoveLeft {
-	0% {right: 0em;}
-	100% {right: 4.6em;}
+	top: 47.8em;
+	height: 1.8em;
+	width: 300em;
+	background: url("/images/beamground1.png");
+	-webkit-animation: groundMoveLeft linear 2s infinite; 
+	-moz-animation: groundMoveLeft linear 2s infinite;
 }
 @-webkit-keyframes groundMoveLeft {
 	0% {right: 0em;}
-	100% {right: 4.6em;}
+	100% {right: 100em;}
 }
-@-webkit-keyframes groundMoveLeft {
+@-moz-keyframes groundMoveLeft {
 	0% {right: 0em;}
 	100% {right: 4.6em;}
 }
 
 .BottomPipe {
 	position: relative;
-	top: -14.5em;
+	top: -50em;
 	width: 5.2em;
-	height: 15em;
+	height: 25em;
 	background: url("/images/redpipebottom.png");
 }
 
 .TopPipe {
 	position: relative;
-	top: -24em;
+	top: -60em;
 	width: 5.2em;
 	height: 31.75em;
 	background: url("/images/redpipetop.png");
@@ -127,9 +223,5 @@ body {
 	margin-left: -51.2em;
 	margin-top: -28.8em;
 	overflow: hidden;
-	background: url("/images/backgroundDay.png");	
+	background: url("/images/backgroundCity.png");	
 }​
-
-.backgroundMusic {
-	background: url("/images/cloud.png");
-}
