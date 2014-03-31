@@ -56,7 +56,7 @@ window.Player = (function() {
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 
 		gravity++;
 
