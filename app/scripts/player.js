@@ -11,6 +11,8 @@ window.Player = (function() {
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 	var gravity = 0;
+	var deathSound;
+	deathSound = $(".death")[0];
 
 	var Player = function(el, game) {
 		this.el = el;
@@ -29,7 +31,6 @@ window.Player = (function() {
 	Player.prototype.onFrame = function(delta) {
 		
 		if (Controls.keys.up || Controls.keys.space) {
-			console.log(Controls.keys.space);
 			this.pos.y -= delta * SPEED;
 			gravity = 0;
 		}

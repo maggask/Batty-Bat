@@ -1,7 +1,8 @@
 
 window.Controls = (function() {
     'use strict';
-
+    var flapSound;
+    flapSound = $("audio")[2];
     /**
      * Key codes we're interested in.
      */
@@ -25,8 +26,10 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onKeyDown = function(e) {
+        
         // Only jump if space wasn't pressed.
         if (e.keyCode === 32 && !this.keys.space) {
+            flapSound.play();
             this._didJump = true;
         }
 
@@ -40,6 +43,7 @@ window.Controls = (function() {
 
     Controls.prototype._onKeyUp = function(e) {
         if (e.keyCode in KEYS) {
+            flapSound = $("audio")[2];
             var keyName = KEYS[e.keyCode];
             this.keys[keyName] = false;
             return false;
