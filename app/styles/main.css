@@ -2,27 +2,45 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 8em;
-	height: 8em;
-	background: url("/images/batmanflying.png");
+	width: 12em;
+	height: 8.5em;
 	overflow: hidden;
 }
 
-.Player.is-jumping {
-	-webkit-animation: 0.5s jump-animation step-end;
+.Player.is-jumping .Player-sprite .Player-move {
+	-webkit-animation: 0.5s jump-animation step-end infinite;
 }
 @-webkit-keyframes jump-animation {
-	0% {background: url("/images/flappybird.png");
-		transform: translate3d(0, 0, 0);}
-	50% {background: url("/images/flappybirdnofly.png");
-		transform: translate3d(-10em, 0, 0);}
-	100% {background: url("/images/flappybirdflying.png");
-		transform: translate3d(-20em, 0, 0);}
+	0% {transform: translate3d(0, 0, 0);}
+	50% {transform: translate3d(-5em, 0, 0);}
 }
+
 .Player-sprite {
-	background: url("/images/flappybirdnofly.png");
+	width: 8em;
+	height: 8.5em;
+}
+
+.Player-move {
+	background: url("/images/sprites.png");
+	width: 10.9em;
+	height: 8.5em;
 	-webkit-transition-timing-function: step-end;
 }
+
+.rotUp {
+	transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+}
+
+.rotDown {
+	transform: rotate(90deg);
+	transition: 1s;
+	-webkit-transform: rotate(90deg);
+	-webkit-transition: 1s;
+	-moz-transform: rotate(90deg);
+	-moz-transition: 1s;
+}
+
 .Scoreboard {
 	position: absolute;
 	left: 50%;
@@ -79,16 +97,8 @@ body {
 	height: 5em;
 	width: 6em;
 	background: url("/images/cloud3.png");
-	-webkit-animation: cloud5MoveLeft linear 30s infinite;
-	-moz-animation: cloud5MoveLeft linear 30s infinite;
-}
-@-webkit-keyframes cloud5MoveLeft {
-	0% {right: -109em;}
-	100% {right: 100em;}
-}
-@-moz-keyframes cloud5MoveLeft {
-	0% {right: -109em;}
-	100% {right: 100em;}
+	-webkit-animation: cloudMoveLeft linear 30s infinite;
+	-moz-animation: cloudMoveLeft linear 30s infinite;
 }
 
 .Cloud4 {
@@ -97,16 +107,8 @@ body {
 	height: 5em;
 	width: 6em;
 	background: url("/images/cloud3.png");
-	-webkit-animation: cloud4MoveLeft linear 26s infinite;
-	-moz-animation: cloud4MoveLeft linear 26s infinite;
-}
-@-webkit-keyframes cloud4MoveLeft {
-	0% {right: -109em;}
-	100% {right: 100em;}
-}
-@-moz-keyframes cloud4MoveLeft {
-	0% {right: -109em;}
-	100% {right: 100em;}
+	-webkit-animation: cloudMoveLeft linear 26s infinite;
+	-moz-animation: cloudMoveLeft linear 26s infinite;
 }
 
 .Cloud3 {
@@ -115,16 +117,8 @@ body {
 	height: 5em;
 	width: 6em;
 	background: url("/images/cloud3.png");
-	-webkit-animation: cloud3MoveLeft linear 20s infinite;
-	-moz-animation: cloud3MoveLeft linear 20s infinite;
-}
-@-webkit-keyframes cloud3MoveLeft {
-	0% {right: -109em;}
-	100% {right: 100em;}
-}
-@-moz-keyframes cloud3MoveLeft {
-	0% {right: -109em;}
-	100% {right: 100em;}
+	-webkit-animation: cloudMoveLeft linear 20s infinite;
+	-moz-animation: cloudMoveLeft linear 20s infinite;
 }
 
 .Cloud {
@@ -136,14 +130,6 @@ body {
 	-webkit-animation: cloudMoveLeft linear 12s infinite;
 	-moz-animation: cloudMoveLeft linear 12s infinite;
 }
-@-webkit-keyframes cloudMoveLeft {
-	0% {right: -109em;}
-	100% {right: 100em;}
-}
-@-moz-keyframes cloudMoveLeft {
-	0% {right: -109em;}
-	100% {right: 100em;}
-}
 
 .Cloud1 {
 	position: relative;
@@ -151,16 +137,8 @@ body {
 	height: 7em;
 	width: 8.2em;
 	background: url("/images/cloud1.png");
-	-webkit-animation: cloud1MoveLeft linear 18s infinite;
-	-moz-animation: cloud1MoveLeft linear 18s infinite;
-}
-@-webkit-keyframes cloud1MoveLeft {
-	0% {right: -109em;}
-	100% {right: 100em;}
-}
-@-moz-keyframes cloud1MoveLeft {
-	0% {right: -109em;}
-	100% {right: 100em;}
+	-webkit-animation: cloudMoveLeft linear 18s infinite;
+	-moz-animation: cloudMoveLeft linear 18s infinite;
 }
 
 .Cloud2 {
@@ -169,14 +147,14 @@ body {
 	height: 8.5em;
 	width: 9.8em;
 	background: url("/images/cloud2.png");
-	-webkit-animation: cloud2MoveLeft linear 14s infinite;
-	-moz-animation: cloud2MoveLeft linear 14s infinite;
+	-webkit-animation: cloudMoveLeft linear 14s infinite;
+	-moz-animation: cloudMoveLeft linear 14s infinite;
 }
-@-webkit-keyframes cloud2MoveLeft {
+@-webkit-keyframes cloudMoveLeft {
 	0% {right: -109em;}
 	100% {right: 100em;}
 }
-@-moz-keyframes cloud2MoveLeft {
+@-moz-keyframes cloudMoveLeft {
 	0% {right: -109em;}
 	100% {right: 100em;}
 }
@@ -202,17 +180,17 @@ body {
 .BottomPipe {
 	position: relative;
 	top: -50em;
-	width: 5.2em;
+	width: 4.4em;
 	height: 25em;
-	background: url("/images/redpipebottom.png");
+	background: url("/images/beam.png");
 }
 
 .TopPipe {
 	position: relative;
 	top: -60em;
-	width: 5.2em;
+	width: 4.4em;
 	height: 31.75em;
-	background: url("/images/redpipetop.png");
+	background: url("/images/beam.png");
 }
 
 .GameCanvas {

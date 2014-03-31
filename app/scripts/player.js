@@ -29,17 +29,28 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
+		var sprite = this.el.find('.Player-sprite');
 		
 		if (Controls.keys.up || Controls.keys.space) {
-			this.pos.y -= delta * SPEED;
-			gravity = 0;
-		}
+			if(Controls.didJump){
+				this.pos.y -= delta * SPEED;
+				gravity = 0;
 
-		var jumping = this.el.find('.Player');
-		jumping
-			.addClass('is-jumping')
-			.find('.Player-sprite')
-				.one('click', function() {
+				if (sprite.hasClass('rotDown')) {
+					sprite.addClass('rotUp');
+					sprite.removeClass('rotDown');
+				}
+			}
+			
+		}
+		if (!sprite.hasClass('rotUp')) {
+			sprite.addClass('rotDown');
+		}
+		sprite.removeClass('rotUp');
+
+		var jumping = this.el.find('.Player-sprite');
+		jumping.addClass('is-jumping')
+				.on('click', function() {
 					jumping.removeClass('is-jumping');
 				});
 
