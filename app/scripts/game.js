@@ -1,4 +1,5 @@
-
+var backgroundMusic = new Audio("music/Batman.mp3");
+var backgroundMusic = new Audio("music/Batman.ogg");
 
 window.Game = (function() {
 	'use strict';
@@ -65,7 +66,10 @@ window.Game = (function() {
 	 */
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
-
+		var deathSound = new Audio("music/Death.mp3");
+		var deathSound = new Audio("music/Death.ogg");
+		deathSound.volume = 0.3;
+		deathSound.play();
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
@@ -89,22 +93,27 @@ window.Game = (function() {
 })();
 
 $(document).ready(function() {
-	var backgroundMusic;
 
 	function init() {
 		console.log("init");
 		$(".play").hide();
-		backgroundMusic = $("audio")[0];
+		//backgroundMusic = $("audio")[0];
+		backgroundMusic.volume = 0.2;
 		backgroundMusic.play();
 	}
 
 	init();
 });
 
-$(".sound").click(function() {
-	var backgroundMusic;
-	backgroundMusic = $("audio")[0];
+backgroundMusic.addEventListener('ended', function(){
+	this.currentTime = 0;
+	this.play();
+}, false);
 
+$(".sound").click(function() {
+	//var backgroundMusic;
+	//backgroundMusic = $("audio")[0];
+	console.log("click");
 	function play() {
 		console.log("play");
 		$(".play").hide();
@@ -118,9 +127,10 @@ $(".sound").click(function() {
 		backgroundMusic.pause();
 		$(".play").show();
 	}
-
 	
-	$('.play').on('click', play );
 	$('.mute').on('click', mute );
+	$('.play').on('click', play );
 });
+
+
 

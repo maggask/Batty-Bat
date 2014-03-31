@@ -2,7 +2,7 @@
 window.Controls = (function() {
     'use strict';
     var flapSound;
-    flapSound = $("audio")[2];
+    
     /**
      * Key codes we're interested in.
      */
@@ -26,10 +26,15 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onKeyDown = function(e) {
-        
+        if(window.gameMusic) {
+            var flapSound = new Audio("music/Flap.mp3");
+            var flapSound = new Audio("music/Flap.ogg");
+            flapSound.volume = 0.3;
+            flapSound.play();
+        }
+
         // Only jump if space wasn't pressed.
         if (e.keyCode === 32 && !this.keys.space) {
-            flapSound.play();
             this._didJump = true;
         }
 
