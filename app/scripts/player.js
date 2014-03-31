@@ -36,7 +36,7 @@ window.Player = (function() {
 				this.pos.y -= delta * SPEED;
 				gravity = 0;
 
-				if (sprite.hasClass('rotDown')) {
+				if (!sprite.hasClass('rotUp')) {
 					sprite.addClass('rotUp');
 					sprite.removeClass('rotDown');
 				}
@@ -48,11 +48,8 @@ window.Player = (function() {
 		}
 		sprite.removeClass('rotUp');
 
-		var jumping = this.el.find('.Player-sprite');
-		jumping.addClass('is-jumping')
-				.on('click', function() {
-					jumping.removeClass('is-jumping');
-				});
+		//var jumping = this.el.find('.Player-sprite');
+		sprite.addClass('is-jumping');
 
 		this.pos.y += (delta * SPEED/10) * gravity/2;
 
@@ -60,7 +57,10 @@ window.Player = (function() {
 
 		// Update UI
 		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+
 		gravity++;
+
+		//sprite.removeClass('is-jumping');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {

@@ -3,16 +3,26 @@
 	top: 0;
 	left: 0;
 	width: 12em;
-	height: 8.5em;
+	height: 10em;
 	overflow: hidden;
 }
 
-.Player.is-jumping .Player-sprite .Player-move {
+.Player-sprite.is-jumping .Player-move {
+	animation: 0.5s jump-animation step-end infinite;
 	-webkit-animation: 0.5s jump-animation step-end infinite;
+	-moz-animation: 0.5s jump-animation step-end infinite;
+}
+@keyframes jump-animation {
+	0% {transform: translate3d(0, 0, 0);}
+	50% {transform: translate3d(-9.125em, 0, 0);}
 }
 @-webkit-keyframes jump-animation {
 	0% {transform: translate3d(0, 0, 0);}
-	50% {transform: translate3d(-5em, 0, 0);}
+	50% {transform: translate3d(-9.125em, 0, 0);}
+}
+@-moz-keyframes jump-animation {
+	0% {transform: translate3d(0, 0, 0);}
+	50% {transform: translate3d(-9.125em, 0, 0);}
 }
 
 .Player-sprite {
@@ -24,11 +34,14 @@
 	background: url("/images/sprites.png");
 	width: 10.9em;
 	height: 8.5em;
+	transition-timing-function: step-end;
 	-webkit-transition-timing-function: step-end;
+	-moz-transition-timing-function: step-end;
 }
 
 .rotUp {
 	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
 	-moz-transform: rotate(-45deg);
 }
 
@@ -39,6 +52,12 @@
 	-webkit-transition: 1s;
 	-moz-transform: rotate(90deg);
 	-moz-transition: 1s;
+}
+
+.Cloud2.stop, .Cloud5.stop, .Cloud4.stop, .Cloud3.stop, .Cloud.stop, .Cloud1.stop, .Ground.stop {
+	animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+	animation: paused;
 }
 
 .Scoreboard {
@@ -174,7 +193,7 @@ body {
 }
 @-moz-keyframes groundMoveLeft {
 	0% {right: 0em;}
-	100% {right: 4.6em;}
+	100% {right: 100em;}
 }
 
 .BottomPipe {
