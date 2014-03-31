@@ -65,11 +65,25 @@ window.Game = (function() {
 	 * Signals that the game is over.
 	 */
 	Game.prototype.gameover = function() {
+		var cloud = this.el.find('.Cloud');
+		var cloud1 = this.el.find('.Cloud1');
+		var cloud2 = this.el.find('.Cloud2');
+		var cloud3 = this.el.find('.Cloud3');
+		var cloud4 = this.el.find('.Cloud4');
+		var cloud5 = this.el.find('.Cloud5');
+		var ground = this.el.find('.Ground');
 		this.isPlaying = false;
 		var deathSound = new Audio("music/Death.mp3");
 		var deathSound = new Audio("music/Death.ogg");
 		deathSound.volume = 0.3;
 		deathSound.play();
+		cloud.addClass('stop');
+		cloud1.addClass('stop');
+		cloud2.addClass('stop');
+		cloud3.addClass('stop');
+		cloud4.addClass('stop');
+		cloud5.addClass('stop');
+		ground.addClass('stop');
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
@@ -78,6 +92,13 @@ window.Game = (function() {
 			.find('.Scoreboard-restart')
 				.one('click', function() {
 					scoreboardEl.removeClass('is-visible');
+					cloud.removeClass('stop');
+					cloud1.removeClass('stop');
+					cloud2.removeClass('stop');
+					cloud3.removeClass('stop');
+					cloud4.removeClass('stop');
+					cloud5.removeClass('stop');
+					ground.removeClass('stop');
 					that.start();
 				});
 	};
