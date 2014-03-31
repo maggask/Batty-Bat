@@ -7,45 +7,46 @@
 	overflow: hidden;
 }
 
-.Player-sprite.is-jumping .Player-move {
-	animation: 0.5s jump-animation step-end infinite;
-	-webkit-animation: 0.5s jump-animation step-end infinite;
-	-moz-animation: 0.5s jump-animation step-end infinite;
+.Player-move.is-jumping {
+	/*background-position: -13em 0;*/
+	animation: 0.1s jump-animation step-end infinite;
+	-webkit-animation: 0.1s jump-animation step-end infinite;
+	/*-moz-animation: 0.5s jump-animation step-end infinite;*/
 }
 @keyframes jump-animation {
 	0% {transform: translate3d(0, 0, 0);}
-	50% {transform: translate3d(-9.125em, 0, 0);}
+	50% {transform: translate3d(-13em, 0, 0);}
 }
 @-webkit-keyframes jump-animation {
 	0% {transform: translate3d(0, 0, 0);}
-	50% {transform: translate3d(-9.125em, 0, 0);}
+	50% {transform: translate3d(-13em, 0, 0);}
 }
 @-moz-keyframes jump-animation {
 	0% {transform: translate3d(0, 0, 0);}
-	50% {transform: translate3d(-9.125em, 0, 0);}
+	50% {transform: translate3d(-13em, 0, 0);}
 }
 
 .Player-sprite {
 	width: 8em;
-	height: 8.5em;
+	height: 8em;
 }
 
 .Player-move {
 	background: url("/images/sprites.png");
 	width: 10.9em;
-	height: 8.5em;
+	height: 8em;
 	transition-timing-function: step-end;
 	-webkit-transition-timing-function: step-end;
 	-moz-transition-timing-function: step-end;
 }
 
-.rotUp {
+.Player-sprite.rotUp {
 	transform: rotate(-45deg);
 	-webkit-transform: rotate(-45deg);
 	-moz-transform: rotate(-45deg);
 }
 
-.rotDown {
+.Player-sprite.rotDown {
 	transform: rotate(90deg);
 	transition: 1s;
 	-webkit-transform: rotate(90deg);
@@ -119,6 +120,9 @@ body {
 	height: 5em;
 	width: 6em;
 	background: url("/images/cloud3.png");
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
 	-webkit-animation: cloudMoveLeft linear 30s infinite;
 	-moz-animation: cloudMoveLeft linear 30s infinite;
 }
@@ -129,6 +133,9 @@ body {
 	height: 5em;
 	width: 6em;
 	background: url("/images/cloud3.png");
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
 	-webkit-animation: cloudMoveLeft linear 26s infinite;
 	-moz-animation: cloudMoveLeft linear 26s infinite;
 }
@@ -139,6 +146,9 @@ body {
 	height: 5em;
 	width: 6em;
 	background: url("/images/cloud3.png");
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
 	-webkit-animation: cloudMoveLeft linear 20s infinite;
 	-moz-animation: cloudMoveLeft linear 20s infinite;
 }
@@ -149,6 +159,9 @@ body {
 	height: 6em;
 	width: 7.2em;
 	background: url("/images/cloud.png");
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
 	-webkit-animation: cloudMoveLeft linear 12s infinite;
 	-moz-animation: cloudMoveLeft linear 12s infinite;
 }
@@ -159,6 +172,9 @@ body {
 	height: 7em;
 	width: 8.2em;
 	background: url("/images/cloud1.png");
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
 	-webkit-animation: cloudMoveLeft linear 18s infinite;
 	-moz-animation: cloudMoveLeft linear 18s infinite;
 }
@@ -169,6 +185,9 @@ body {
 	height: 8.5em;
 	width: 9.8em;
 	background: url("/images/cloud2.png");
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
 	-webkit-animation: cloudMoveLeft linear 14s infinite;
 	-moz-animation: cloudMoveLeft linear 14s infinite;
 }
@@ -187,6 +206,9 @@ body {
 	height: 1.8em;
 	width: 300em;
 	background: url("/images/beamground1.png");
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
 	-webkit-animation: groundMoveLeft linear 2s infinite; 
 	-moz-animation: groundMoveLeft linear 2s infinite;
 }
@@ -233,4 +255,7 @@ body {
 	top: -95em;
 	width: 3em;
 	height: 3em;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
 }
