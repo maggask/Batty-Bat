@@ -83,7 +83,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
-	Game.prototype.WORLD_HEIGHT_WITH_GROUND = 47.8;
+	Game.prototype.WORLD_HEIGHT_WITH_GROUND = 48.2;
 
 	return Game;
 })();
