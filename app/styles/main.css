@@ -3,8 +3,8 @@
 	top: 0;
 	left: 0;
 	width: 8em;
-	height: 6em;
-	background: url("/images/flappybird.png");
+	height: 8em;
+	background: url("/images/batmanflying.png");
 	overflow: hidden;
 }
 
@@ -183,7 +183,7 @@ body {
 
 .Ground {
 	position: relative;
-	top: 47.8em;
+	top: 48.2em;
 	height: 1.8em;
 	width: 300em;
 	background: url("/images/beamground1.png");
