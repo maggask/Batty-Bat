@@ -15,6 +15,10 @@ window.Game = (function() {
 		this.player = new window.Player(this.el.find('.Player'), this);
 		//this.pipeBot = new window.Pipes(this.el.find('.BottomPipe'), this);
 		//this.pipeTop = new window.Pipes(this.el.find('.TopPipe'), this);
+		//this.pipeBot1 = new window.Pipes(this.el.find('.BottomPipe1'), this);
+		//this.pipeTop1 = new window.Pipes(this.el.find('.TopPipe1'), this);
+		//this.pipeBot2 = new window.Pipes(this.el.find('.BottomPipe2'), this);
+		//this.pipeTop2 = new window.Pipes(this.el.find('.TopPipe2'), this);
 		this.isPlaying = false;
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -135,27 +139,23 @@ backgroundMusic.addEventListener('ended', function(){
 	this.play();
 }, false);
 
-$(".sound").click(function() {
-	//var backgroundMusic;
-	//backgroundMusic = $("audio")[0];
-	console.log("click");
-	function play() {
-		console.log("play");
-		$(".play").hide();
-		backgroundMusic.play();
-		$(".mute").show();
-	}
+console.log("click");
+function play() {
+	console.log("play");
+	$(".play").hide();
+	backgroundMusic.play();
+	$(".mute").show();
+}
 
-	function mute() {
-		console.log("mute");
-		$(".mute").hide();
-		backgroundMusic.pause();
-		$(".play").show();
-	}
-	
-	$('.mute').on('click', mute );
-	$('.play').on('click', play );
-});
+function mute() {
+	console.log("mute");
+	$(".mute").hide();
+	backgroundMusic.pause();
+	$(".play").show();
+}
+
+$('.mute').on('click', mute );
+$('.play').on('click', play );
 
 
 
