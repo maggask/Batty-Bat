@@ -82,6 +82,10 @@ window.Game = (function() {
 				});
 	};
 
+	Game.prototype.generatePipes = function() {
+		//TODO: change pipes to make them appear evenly spaced with random openings
+	};
+
 	/**
 	 * Some shared constants.
 	 */

@@ -9,11 +9,11 @@
 
 .Player.is-jumping .Player-sprite .Player-move {
 	-webkit-animation: 0.5s jump-animation step-end infinite;
-}
-@-webkit-keyframes jump-animation {
-	0% {transform: translate3d(0, 0, 0);}
-	50% {transform: translate3d(-5em, 0, 0);}
-}
+	}
+	@-webkit-keyframes jump-animation {
+		0% {transform: translate3d(0, 0, 0);}
+		50% {transform: translate3d(-5em, 0, 0);}
+	}
 
 .Player-sprite {
 	width: 8em;
@@ -55,6 +55,8 @@
 	border-radius: 12px;
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
+	-moz-transform: translate(0, -40em);
+	-moz-transition: -moz-transform 0.5s;
 }
 
 /**
@@ -62,6 +64,7 @@
 */
 .Scoreboard.is-visible {
 	-webkit-transform: none;
+	-moz-transform: none;
 }
 
 .Scoreboard-restart {
@@ -179,7 +182,7 @@ body {
 
 .BottomPipe {
 	position: relative;
-	top: -50em;
+	top: -46.5em;
 	width: 4.4em;
 	height: 25em;
 	background: url("/images/beam.png");
@@ -187,7 +190,7 @@ body {
 
 .TopPipe {
 	position: relative;
-	top: -60em;
+	top: -56.5em;
 	width: 4.4em;
 	height: 31.75em;
 	background: url("/images/beam.png");
