@@ -28,26 +28,29 @@ window.Player = (function() {
 
 	Player.prototype.onFrame = function(delta) {
 		var sprite = this.el.find('.Player-sprite');
+		var move = sprite.find('.Player-move');
 		
 		if (Controls.keys.up || Controls.keys.space) {
 			if(Controls.didJump){
 				this.pos.y -= delta * SPEED;
 				gravity = 0;
 
+				//sprite.addClass('rotUp');
 				if (!sprite.hasClass('rotUp')) {
 					sprite.addClass('rotUp');
 					sprite.removeClass('rotDown');
 				}
+				move.addClass('is-jumping');
 			}
 			
+		}
+		else {
+			move.removeClass('is-jumping');
 		}
 		if (!sprite.hasClass('rotUp')) {
 			sprite.addClass('rotDown');
 		}
 		sprite.removeClass('rotUp');
-
-		//var jumping = this.el.find('.Player-sprite');
-		sprite.addClass('is-jumping');
 
 		this.pos.y += (delta * SPEED/10) * gravity/2;
 
@@ -58,7 +61,7 @@ window.Player = (function() {
 
 		gravity++;
 
-		//sprite.removeClass('is-jumping');
+		
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
