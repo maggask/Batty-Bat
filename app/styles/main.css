@@ -249,7 +249,7 @@ body {
 	100% {right: 100em;}
 }
 
-.BottomPipe {
+.bottomPipe {
 	position: relative;
 	top: -46.5em;
 	width: 4.4em;
@@ -257,7 +257,7 @@ body {
 	background: url("/images/beam.png");
 }
 
-.TopPipe {
+.topPipe {
 	position: relative;
 	top: -56.5em;
 	width: 4.4em;

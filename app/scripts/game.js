@@ -12,13 +12,13 @@ window.Game = (function() {
 	var Controls = window.Controls;
 	var Game = function(el) {
 		this.el = el;
+		this.gameObj = [];
 		this.player = new window.Player(this.el.find('.Player'), this);
-		//this.pipeBot = new window.Pipes(this.el.find('.BottomPipe'), this);
-		//this.pipeTop = new window.Pipes(this.el.find('.TopPipe'), this);
-		//this.pipeBot1 = new window.Pipes(this.el.find('.BottomPipe1'), this);
-		//this.pipeTop1 = new window.Pipes(this.el.find('.TopPipe1'), this);
-		//this.pipeBot2 = new window.Pipes(this.el.find('.BottomPipe2'), this);
-		//this.pipeTop2 = new window.Pipes(this.el.find('.TopPipe2'), this);
+		//this.gameObj.push(this.player);
+		//this.gameObj.push(new window.Pipe(this, 98));
+		this.pipe = new window.Pipe(this, -150);
+		//this.pipe1 = new window.Pipe(this, 100);
+		//this.pipe2 = new window.Pipe(this, 100);
 		this.isPlaying = false;
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -36,11 +36,12 @@ window.Game = (function() {
 
 		// Calculate how long since last frame in seconds.
 		var now = +new Date() / 1000,
-				delta = now - this.lastFrame;
+		delta = now - this.lastFrame;
 		this.lastFrame = now;
 
 		// Update game entities.
-			this.player.onFrame(delta);
+		this.player.onFrame(delta);
+		this.pipe.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -63,6 +64,10 @@ window.Game = (function() {
 	 */
 	Game.prototype.reset = function() {
 		this.player.reset();
+		this.pipe.reset();
+		/*for(var obj in this.gameObj) {
+			this.obj.reset();
+		}*/
 	};
 
 	/**
@@ -126,7 +131,6 @@ $(document).ready(function() {
 	function init() {
 		console.log("init");
 		$(".play").hide();
-		//backgroundMusic = $("audio")[0];
 		backgroundMusic.volume = 0.2;
 		backgroundMusic.play();
 	}
@@ -156,6 +160,3 @@ function mute() {
 
 $('.mute').on('click', mute );
 $('.play').on('click', play );
-
-
-
