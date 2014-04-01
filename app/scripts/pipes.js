@@ -24,8 +24,8 @@ window.Pipe = (function() {
 
 	Pipe.prototype.randomizePipe = function() {
 		var number = Math.random() * 25 + 10;
-		this.topPipePos = number - 22;
-		this.botPipePos = number + 11;
+		this.topPipePos = number - 50;
+		this.botPipePos = number + 12;
 
 	};
 

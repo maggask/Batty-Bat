@@ -62,9 +62,9 @@ window.Player = (function() {
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
-		if (this.pos.x < 0 || 
+		if (this.pos.x < this.game.WORLD_HEIGHT_WITH_CEILING || 
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-			this.pos.y < 0 ||
+			this.pos.y < this.game.WORLD_HEIGHT_WITH_CEILING ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT_WITH_GROUND) {
 			return this.game.gameover();
 		}
