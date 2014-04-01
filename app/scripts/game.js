@@ -125,6 +125,29 @@ window.Game = (function() {
 	Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
 	Game.prototype.WORLD_HEIGHT_WITH_GROUND = 48.2;
+/*
+	window.onresize = function(e) {
+	
+		//fontSize = Math.min(
+		//	window.innerWidth / 19.2,
+		//	window.innerHeight / 10.8
+		//);
+		//el.style.fontSize = fontSize + 'px';
+		
+		//document.getElementById("game").setAttribute("style", "font-size: " + fontSize + "px;");
+		
+		$(window).bind('resize', function() {
+			resiseMe();
+		}).trigger('resize');
+	};
+
+	resize = function() {
+		var displayHeight = $(window).height();
+		var percentage = displayHeight / preferredHeight;
+		var newFontSize = Math.floor(fontsize * percentage) - 1;
+		$("body").css("font-size", newFontSize);
+	}
+*/		
 
 	return Game;
 })();
@@ -142,8 +165,9 @@ $(document).ready(function() {
 });
 
 backgroundMusic.addEventListener('ended', function(){
-	this.currentTime = 0;
-	this.play();
+	backgroundMusic.currentTime = 0;
+	backgroundMusic.load();
+	backgroundMusic.play();
 }, false);
 
 console.log("click");
@@ -163,3 +187,4 @@ function mute() {
 
 $('.mute').on('click', mute );
 $('.play').on('click', play );
+
