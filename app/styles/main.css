@@ -66,7 +66,7 @@
 	-moz-transition: 1s;
 }
 
-.Cloud2.stop, .Cloud5.stop, .Cloud4.stop, .Cloud3.stop, .Cloud.stop, .Cloud1.stop, .Ground.stop, .Player-move.stop {
+.Cloud2.stop, .Cloud5.stop, .Cloud4.stop, .Cloud3.stop, .Cloud.stop, .Cloud1.stop, .Ground.stop, .Player-move.stop, .Ceiling.stop {
 	animation-play-state: paused;
 	-webkit-animation-play-state: paused;
 	animation: paused;
@@ -235,6 +235,19 @@ body {
 	100% {right: 100em;}
 }
 
+.Ceiling {
+	position: relative;
+	top: -35em;
+	height: 1.8em;
+	width: 300em;
+	background: url("/images/beamground1.png");
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-webkit-animation: groundMoveLeft linear 5.6s infinite; 
+	-moz-animation: groundMoveLeft linear 5.6s infinite;
+}
+
 .Ground {
 	position: relative;
 	top: 48.2em;
@@ -244,8 +257,8 @@ body {
 	transform: translateZ(0);
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
-	-webkit-animation: groundMoveLeft linear 5s infinite; 
-	-moz-animation: groundMoveLeft linear 5s infinite;
+	-webkit-animation: groundMoveLeft linear 5.6s infinite; 
+	-moz-animation: groundMoveLeft linear 5.6s infinite;
 }
 @-webkit-keyframes groundMoveLeft {
 	0% {right: 0em;}
@@ -261,7 +274,7 @@ body {
 	top:0em;
 	left: 0em;
 	width: 4.4em;
-	height: 20em;
+	height: 50em;
 	background: url("/images/beam.png");
 }
 
@@ -280,7 +293,7 @@ body {
 
 .sound, .mute, .play {
 	position: relative;
-	top: -38em;
+	top: -40em;
 	width: 3em;
 	height: 3em;
 	transform: translateZ(0);

@@ -13,9 +13,9 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
-		this.pipe = new Pipe(this, 100);
-		this.pipe1 = new Pipe(this, 140);
-		this.pipe2 = new Pipe(this, 180);
+		this.pipe = new Pipe(this, 110);
+		this.pipe1 = new Pipe(this, 150);
+		this.pipe2 = new Pipe(this, 190);
 
 	
 		this.isPlaying = false;
@@ -82,6 +82,7 @@ window.Game = (function() {
 		var cloud4 = this.el.find('.Cloud4');
 		var cloud5 = this.el.find('.Cloud5');
 		var ground = this.el.find('.Ground');
+		var ceiling = this.el.find('.Ceiling');
 		var player = this.el.find('.Player-move');
 
 		this.isPlaying = false;
@@ -97,6 +98,7 @@ window.Game = (function() {
 		cloud4.addClass('stop');
 		cloud5.addClass('stop');
 		ground.addClass('stop');
+		ceiling.addClass('stop');
 		player.addClass('stop');
 		
 		var that = this;
@@ -113,6 +115,7 @@ window.Game = (function() {
 					cloud4.removeClass('stop');
 					cloud5.removeClass('stop');
 					ground.removeClass('stop');
+					ceiling.removeClass('stop');
 					player.removeClass('stop');
 					that.start();
 				});
@@ -124,6 +127,7 @@ window.Game = (function() {
 	Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
 	Game.prototype.WORLD_HEIGHT_WITH_GROUND = 48.2;
+	Game.prototype.WORLD_HEIGHT_WITH_CEILING = 3;
 /*
 	window.onresize = function(e) {
 	

@@ -1,5 +1,5 @@
 window.Pipe = (function() {
-
+	var Player = window.Player;
 	var Pipe = function(game, xpos) {
 		this.game = game;
 		this.xpos = xpos;
@@ -23,8 +23,8 @@ window.Pipe = (function() {
 
 	Pipe.prototype.randomizePipe = function() {
 		var number = Math.random() * 25 + 10;
-		this.topPipePos = number - 22;
-		this.botPipePos = number + 11;
+		this.topPipePos = number - 50;
+		this.botPipePos = number + 12;
 
 	};
 
