@@ -3,13 +3,12 @@ window.Pipe = (function() {
 	var Pipe = function(game, xpos) {
 		this.game = game;
 		this.xpos = xpos;
-		
 		this.bottomPipe = $(document.createElement('div'));
 		this.topPipe = $(document.createElement('div'));
 		this.bottomPipe.addClass("Pipe");
-		game.el.append(this.bottomPipe[0]);
+		document.getElementById('AllPipes').appendChild(this.bottomPipe[0]);
 		this.topPipe.addClass("Pipe");
-		game.el.append(this.topPipe[0]);
+		document.getElementById('AllPipes').appendChild(this.topPipe[0]);
 		
 		this.pos = { x: xpos, y: 0};
 		this.topPipePos = 0;
@@ -24,7 +23,7 @@ window.Pipe = (function() {
 
 	Pipe.prototype.randomizePipe = function() {
 		var number = Math.random() * 25 + 10;
-		this.topPipePos = number - 30;
+		this.topPipePos = number - 22;
 		this.botPipePos = number + 11;
 
 	};

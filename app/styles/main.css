@@ -84,6 +84,7 @@
 	text-align: center;
 	opacity: 0.5;
 	border-radius: 0.75em;
+	-webkit-transform: translateZ(2);
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
 	-moz-transform: translate(0, -40em);
@@ -257,7 +258,6 @@ body {
 
 .Pipe {
 	position: absolute;
-	z-index: 50;
 	top:0em;
 	left: 0em;
 	width: 4.4em;
@@ -280,7 +280,7 @@ body {
 
 .sound, .mute, .play {
 	position: relative;
-	top: -95em;
+	top: -38em;
 	width: 3em;
 	height: 3em;
 	transform: translateZ(0);
