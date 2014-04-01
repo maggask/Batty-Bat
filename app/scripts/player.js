@@ -11,8 +11,6 @@ window.Player = (function() {
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 	var gravity = 0;
-	var deathSound;
-	deathSound = $(".death")[0];
 
 	var Player = function(el, game) {
 		this.el = el;
@@ -58,7 +56,7 @@ window.Player = (function() {
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.el.css('transform', 'translateZ(1) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 
 		gravity++;
 	};
