@@ -16,7 +16,7 @@ window.Game = (function() {
 		this.player = new window.Player(this.el.find('.Player'), this);
 		//this.gameObj.push(this.player);
 		//this.gameObj.push(new window.Pipe(this, 98));
-		this.pipe = new window.Pipe(this, -150);
+		this.pipe = new window.Pipe(this, 50);
 		//this.pipe1 = new window.Pipe(this, 100);
 		//this.pipe2 = new window.Pipe(this, 100);
 		this.isPlaying = false;

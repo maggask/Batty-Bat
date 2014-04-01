@@ -250,16 +250,18 @@ body {
 }
 
 .bottomPipe {
-	position: relative;
-	top: -46.5em;
+	position: absolute;
+	top:0em;
+	left: 0em;
 	width: 4.4em;
 	height: 25em;
 	background: url("/images/beam.png");
 }
 
 .topPipe {
-	position: relative;
-	top: -56.5em;
+	position: absolute;
+	top: 0em;
+	left: 0em;
 	width: 4.4em;
 	height: 31.75em;
 	background: url("/images/beam.png");
