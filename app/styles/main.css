@@ -8,9 +8,9 @@
 }
 
 .Player-move.is-jumping {
-	animation: 0.8s jump-animation step-end infinite;
-	-webkit-animation: 0.8s jump-animation step-end infinite;
-	-moz-animation: 0.8s jump-animation step-end infinite;
+	animation: 0.5s jump-animation step-end infinite;
+	-webkit-animation: 0.5s jump-animation step-end infinite;
+	-moz-animation: 0.5s jump-animation step-end infinite;
 }
 @keyframes jump-animation {
 	0% {transform: translate3d(0, 0, 0);}
