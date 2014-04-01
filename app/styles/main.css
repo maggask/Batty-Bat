@@ -8,33 +8,38 @@
 }
 
 .Player-move.is-jumping {
-	/*background-position: -13em 0;*/
 	animation: 0.1s jump-animation step-end infinite;
-	-webkit-animation: 0.1s jump-animation step-end infinite;
-	/*-moz-animation: 0.5s jump-animation step-end infinite;*/
+	-webkit-animation: 0.5s jump-animation step-end infinite;
+	-moz-animation: 0.5s jump-animation step-end infinite;
 }
 @keyframes jump-animation {
 	0% {transform: translate3d(0, 0, 0);}
-	50% {transform: translate3d(-13em, 0, 0);}
+	25% {transform: translate3d(-7.813em, 0, 0);}
+	50% {transform: translate3d(-16.563em, 0, 0);}
+	75% {transform: translate3d(-23.126em, 0, 0);}
 }
 @-webkit-keyframes jump-animation {
-	0% {transform: translate3d(0, 0, 0);}
-	50% {transform: translate3d(-13em, 0, 0);}
+	0% {-webkit-transform: translate3d(0, 0, 0);}
+	25% {-webkit-transform: translate3d(-7.813em, 0, 0);}
+	50% {-webkit-transform: translate3d(-16.563em, 0, 0);}
+	75% {-webkit-transform: translate3d(-23.126em, 0, 0);}
 }
 @-moz-keyframes jump-animation {
-	0% {transform: translate3d(0, 0, 0);}
-	50% {transform: translate3d(-13em, 0, 0);}
+	0% {-moz-transform: translate3d(0, 0, 0);}
+	25% {-moz-transform: translate3d(-7.813em, 0, 0);}
+	50% {-moz-transform: translate3d(-16.563em, 0, 0);}
+	75% {-moz-transform: translate3d(-23.126em, 0, 0);}
 }
 
 .Player-sprite {
 	width: 8em;
-	height: 8em;
+	height: 9.5em;
 }
 
 .Player-move {
 	background: url("/images/sprites.png");
-	width: 10.9em;
-	height: 8em;
+	width: 30.875em;
+	height: 5.875em;
 	transition-timing-function: step-end;
 	-webkit-transition-timing-function: step-end;
 	-moz-transition-timing-function: step-end;
@@ -99,6 +104,29 @@
 .Scoreboard-restartText {
 	font-family: 'Comic Sans MS', serif;
 	font-size: 2.4em;
+	color: white;
+}
+
+.Score {
+	position: absolute;
+	left: 25%;
+	top: 5em;
+	height: 15em;
+	width: 20em;
+}
+
+.Score-text {
+	font-family: 'Comic Sans MS', serif;
+	font-size: 2.4em;
+	color: white;
+}
+
+.Score-result {
+	position: absolute;
+	left: 40%;
+	top: 1em;
+	font-family: 'Comic Sans MS', serif;
+	font-size: 5em;
 	color: white;
 }
 
@@ -209,8 +237,8 @@ body {
 	transform: translateZ(0);
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
-	-webkit-animation: groundMoveLeft linear 2s infinite; 
-	-moz-animation: groundMoveLeft linear 2s infinite;
+	-webkit-animation: groundMoveLeft linear 5s infinite; 
+	-moz-animation: groundMoveLeft linear 5s infinite;
 }
 @-webkit-keyframes groundMoveLeft {
 	0% {right: 0em;}

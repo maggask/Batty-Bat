@@ -37,18 +37,17 @@ window.Player = (function() {
 				this.pos.y -= delta * SPEED;
 				gravity = 0;
 
-				//sprite.addClass('rotUp');
 				if (!sprite.hasClass('rotUp')) {
 					sprite.addClass('rotUp');
 					sprite.removeClass('rotDown');
 				}
 				move.addClass('is-jumping');
-			}
-			
+			}		
 		}
 		else {
 			move.removeClass('is-jumping');
 		}
+
 		if (!sprite.hasClass('rotUp')) {
 			sprite.addClass('rotDown');
 		}
@@ -62,12 +61,12 @@ window.Player = (function() {
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 
 		gravity++;
-
-		
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
-		if (this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
+		if (this.pos.x < 0 || 
+			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
+			this.pos.y < 0 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT_WITH_GROUND) {
 			return this.game.gameover();
 		}
