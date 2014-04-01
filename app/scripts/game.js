@@ -81,6 +81,7 @@ window.Game = (function() {
 		var cloud4 = this.el.find('.Cloud4');
 		var cloud5 = this.el.find('.Cloud5');
 		var ground = this.el.find('.Ground');
+		var player = this.el.find('.Player-move');
 		this.isPlaying = false;
 		var deathSound = new Audio("music/Death.mp3");
 		var deathSound = new Audio("music/Death.ogg");
@@ -93,6 +94,7 @@ window.Game = (function() {
 		cloud4.addClass('stop');
 		cloud5.addClass('stop');
 		ground.addClass('stop');
+		player.addClass('stop');
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
@@ -108,6 +110,7 @@ window.Game = (function() {
 					cloud4.removeClass('stop');
 					cloud5.removeClass('stop');
 					ground.removeClass('stop');
+					player.removeClass('stop');
 					that.start();
 				});
 	};
