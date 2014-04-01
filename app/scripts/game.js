@@ -12,14 +12,14 @@ window.Game = (function() {
 	var Controls = window.Controls;
 	var Game = function(el) {
 		this.el = el;
-		this.gameObj = [];
 		this.player = new window.Player(this.el.find('.Player'), this);
-		//this.gameObj.push(this.player);
-		//this.gameObj.push(new window.Pipe(this, 98));
-		this.pipe = new window.Pipe(this, 50);
-		//this.pipe1 = new window.Pipe(this, 100);
-		//this.pipe2 = new window.Pipe(this, 100);
+		this.pipe = new Pipe(this, 100);
+		this.pipe1 = new Pipe(this, 140);
+		this.pipe2 = new Pipe(this, 180);
+
+	
 		this.isPlaying = false;
+
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
 	};
@@ -42,6 +42,8 @@ window.Game = (function() {
 		// Update game entities.
 		this.player.onFrame(delta);
 		this.pipe.onFrame(delta);
+		this.pipe1.onFrame(delta);
+		this.pipe2.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -65,9 +67,8 @@ window.Game = (function() {
 	Game.prototype.reset = function() {
 		this.player.reset();
 		this.pipe.reset();
-		/*for(var obj in this.gameObj) {
-			this.obj.reset();
-		}*/
+		this.pipe1.reset();
+		this.pipe2.reset();
 	};
 
 	/**
@@ -82,11 +83,13 @@ window.Game = (function() {
 		var cloud5 = this.el.find('.Cloud5');
 		var ground = this.el.find('.Ground');
 		var player = this.el.find('.Player-move');
+
 		this.isPlaying = false;
 		var deathSound = new Audio("music/Death.mp3");
 		var deathSound = new Audio("music/Death.ogg");
 		deathSound.volume = 0.3;
 		deathSound.play();
+
 		cloud.addClass('stop');
 		cloud1.addClass('stop');
 		cloud2.addClass('stop');
@@ -95,7 +98,7 @@ window.Game = (function() {
 		cloud5.addClass('stop');
 		ground.addClass('stop');
 		player.addClass('stop');
-		// Should be refactored into a Scoreboard class.
+		
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
 		scoreboardEl
@@ -113,10 +116,6 @@ window.Game = (function() {
 					player.removeClass('stop');
 					that.start();
 				});
-	};
-
-	Game.prototype.generatePipes = function() {
-		//TODO: change pipes to make them appear evenly spaced with random openings
 	};
 
 	/**

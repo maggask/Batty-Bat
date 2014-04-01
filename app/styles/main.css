@@ -46,12 +46,18 @@
 }
 
 .Player-sprite.rotUp {
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
 	transform: rotate(-45deg);
 	-webkit-transform: rotate(-45deg);
 	-moz-transform: rotate(-45deg);
 }
 
 .Player-sprite.rotDown {
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
 	transform: rotate(90deg);
 	transition: 1s;
 	-webkit-transform: rotate(90deg);
@@ -77,7 +83,7 @@
 	background: rgb(48, 117, 139);
 	text-align: center;
 	opacity: 0.5;
-	border-radius: 12px;
+	border-radius: 0.75em;
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
 	-moz-transform: translate(0, -40em);
@@ -123,8 +129,8 @@
 
 .Score-result {
 	position: absolute;
-	left: 40%;
-	top: 1em;
+	left: 45%;
+	top: 2em;
 	font-family: 'Comic Sans MS', serif;
 	font-size: 5em;
 	color: white;
@@ -249,21 +255,13 @@ body {
 	100% {right: 100em;}
 }
 
-.bottomPipe {
+.Pipe {
 	position: absolute;
+	z-index: 50;
 	top:0em;
 	left: 0em;
 	width: 4.4em;
-	height: 25em;
-	background: url("/images/beam.png");
-}
-
-.topPipe {
-	position: absolute;
-	top: 0em;
-	left: 0em;
-	width: 4.4em;
-	height: 31.75em;
+	height: 20em;
 	background: url("/images/beam.png");
 }
 
