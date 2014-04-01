@@ -26,7 +26,7 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onKeyDown = function(e) {
-        if(window.gameMusic) {
+        if(window.gameMusic && e.keyCode === 32) {
             var flapSound = new Audio("music/Flap.mp3");
             var flapSound = new Audio("music/Flap.ogg");
             flapSound.volume = 0.3;
