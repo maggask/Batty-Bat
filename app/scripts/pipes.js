@@ -38,7 +38,6 @@ window.Pipe = (function() {
 		var number = Math.random() * 25 + 10;
 		this.topPipePos = number - this.HEIGHT_OF_PIPE;
 		this.botPipePos = number + this.GAP_BETWEEN_PIPES;
-
 	};
 
 	Pipe.prototype.onFrame = function(delta) {
