@@ -54,9 +54,14 @@ window.Pipe = (function() {
 
 	Pipe.prototype.collision = function() {
 		var score = 0;
-		console.log(this.game.player.WIDTH);
+		//console.log(this.game.player.WIDTH);
+		var player = this.game.player.pos; 
+		var playerRadius = (player.HEIGHT + player.WIDTH) / 4;
 
-		if ((this.pos.x - (this.WIDTH_OF_PIPE/2)) < (this.game.player.pos.x + (this.game.player.WIDTH/2))) {
+		if (((this.pos.x - (this.WIDTH_OF_PIPE/2)) < (player.x + (this.game.player.WIDTH/2)))
+			&& ((this.pos.x + (this.WIDTH_OF_PIPE/2)) > (player.x))
+			&& ( ((this.topPipePos + (this.HEIGHT_OF_PIPE - 5)) > (player.y - (this.game.player.HEIGHT/2))) 
+			|| ((this.botPipePos - 2) < (player.y + (this.game.player.HEIGHT/2))) )) {
 			
 			return this.game.gameover();	
 		}
