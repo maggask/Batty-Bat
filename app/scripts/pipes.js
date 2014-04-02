@@ -6,9 +6,12 @@ window.Pipe = (function() {
 		this.game = game;
 		this.xpos = xpos;
 
+		// Create divs for top and bottom pipes at runtime.
 		this.bottomPipe = $(document.createElement('div'));
 		this.topPipe = $(document.createElement('div'));
 
+		// Add a css class to those pipes and append them to a parent div
+		// to place them in the right place in the hierarchy of the div's.
 		this.bottomPipe.addClass("Pipe");
 		document.getElementById('AllPipes').appendChild(this.bottomPipe[0]);
 		
@@ -17,7 +20,7 @@ window.Pipe = (function() {
 		
 		this.pos = { x: xpos, y: 0};
 
-		// Potition of top and bottom pipe in gamecanvas
+		// Position of top and bottom pipe in gamecanvas.
 		this.topPipePos = 0;
 		this.botPipePos = 28.5;
 
@@ -36,7 +39,7 @@ window.Pipe = (function() {
 	};
 
 	Pipe.prototype.randomizePipe = function() {
-		// Random number between 25 and 10
+		// Random number between 25 and 10.
 		var number = Math.random() * 25 + 10;
 		this.topPipePos = number - this.HEIGHT_OF_PIPE;
 		this.botPipePos = number + this.GAP_BETWEEN_PIPES;
@@ -44,12 +47,16 @@ window.Pipe = (function() {
 
 	Pipe.prototype.onFrame = function(delta) {
 		this.pos.x = this.pos.x - 0.3;
+
 		this.collision();
-		// Check if pipe is out of bounds and then place it a 9 em's from the right possition of game canvas
+
+		// Check if pipe is out of bounds and then place it a 9 em's from the right possition of game canvas.
 		if(this.pos.x + this.WIDTH_OF_PIPE < 0) {
 			this.pos.x = this.STARTING_POINT_FOR_FIRST_PIPE;
 			this.randomizePipe();
 		}
+
+		// Update UI
 		this.topPipe.css('transform', 'translate3d(' + this.pos.x + 'em, ' + this.topPipePos + 'em, 0em)');
 		this.bottomPipe.css('transform', 'translate3d(' + this.pos.x + 'em, ' + this.botPipePos + 'em, 0em)');
 	};
@@ -58,19 +65,23 @@ window.Pipe = (function() {
 		
 		var player = this.game.player.pos; 
 
+		// Check is pipe is passed the player then score is added.
 		if (this.pos.x > 30.7 && this.pos.x < 31){
 			score = score + 1;
 		}
 
+		// Check for possible collision to pipes.
 		if (((this.pos.x - (this.WIDTH_OF_PIPE/2)) < (player.x + (this.game.player.WIDTH/2)))
 			&& ((this.pos.x + (this.WIDTH_OF_PIPE/2)) > (player.x))
-			&& ( ((this.topPipePos + (this.HEIGHT_OF_PIPE - 5)) > (player.y - (this.game.player.HEIGHT/2))) 
-			|| ((this.botPipePos - 2) < (player.y + (this.game.player.HEIGHT/2))) )) {
+			&& (((this.topPipePos + (this.HEIGHT_OF_PIPE - 5)) > (player.y - (this.game.player.HEIGHT/2))) 
+			|| ((this.botPipePos - 2) < (player.y + (this.game.player.HEIGHT/2))))) {
 			
 			this.score();
 			return this.game.gameover();	
 		}
 
+		// Check for collision to bounds, if so than score is called that
+		// renders the css.
 		if (this.pos.x < this.game.WORLD_HEIGHT_WITH_CEILING || 
 			this.pos.x + player.WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < this.game.WORLD_HEIGHT_WITH_CEILING ||
@@ -81,6 +92,7 @@ window.Pipe = (function() {
 
 	};
 
+	// Adds score to css to post it on the restart window div.
 	Pipe.prototype.score = function() {
 		var sco = score.toString();
 		document.getElementById("scoreText").innerHTML = sco;

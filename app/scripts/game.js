@@ -129,7 +129,10 @@ window.Game = (function() {
 	Game.prototype.WORLD_HEIGHT = 57.6;
 	Game.prototype.WORLD_HEIGHT_WITH_GROUND = 50;
 	Game.prototype.WORLD_HEIGHT_WITH_CEILING = 3;
+
 /*
+*	Some experiments with resizing and scaling the game for smaller screens.
+*
 	window.onresize = function(e) {
 	
 		//fontSize = Math.min(
@@ -156,6 +159,7 @@ window.Game = (function() {
 	return Game;
 })();
 
+// Jquery for the musik and muting.
 $(document).ready(function() {
 
 	function init() {

@@ -5,7 +5,7 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 30; // * 10 pixels per second
+	var SPEED = 40; // * 10 pixels per second.
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 	var gravity = 0;
@@ -16,6 +16,7 @@ window.Player = (function() {
 		this.pos = { x: 0, y: 0 };
 	};
 
+	// Constants for height and width of the player.
 	Player.prototype.WIDTH = 10;
 	Player.prototype.HEIGHT = 8.9;
 	/**
@@ -26,6 +27,10 @@ window.Player = (function() {
 		this.pos.y = INITIAL_POSITION_Y;
 	};
 
+	// Player onFrame takes care of checking if a key is pressed, if so than
+	// gravity is initialized to zero. Gravity is used to increment speed when falling.
+	// Classes that take care of rotation are added to the player div and collision with
+	// bounds is checked.
 	Player.prototype.onFrame = function(delta) {
 		var sprite = this.el.find('.Player-sprite');
 		var move = sprite.find('.Player-move');
@@ -61,6 +66,8 @@ window.Player = (function() {
 		gravity++;
 	};
 	
+	// Checkes for collision with bounds, checks where player is
+	// according to world height with ceiling and with ground.
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < this.game.WORLD_HEIGHT_WITH_CEILING || 
 			this.pos.x + this.WIDTH > this.game.WORLD_WIDTH ||
