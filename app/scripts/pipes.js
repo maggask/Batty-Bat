@@ -26,6 +26,7 @@ window.Pipe = (function() {
 	Pipe.prototype.GAP_BETWEEN_PIPES = 15;
 	Pipe.prototype.HEIGHT_OF_PIPE = 50;
 	Pipe.prototype.WIDTH_OF_PIPE = 4.4;
+	Pipe.prototype.STARTING_POINT_FOR_FIRST_PIPE = 111;
 
 	Pipe.prototype.reset = function() {
 		// Update UI
@@ -45,7 +46,7 @@ window.Pipe = (function() {
 		this.collision();
 		// Check if pipe is out of bounds and then place it a 9 em's from the right possition of game canvas
 		if(this.pos.x + this.WIDTH_OF_PIPE < 0) {
-			this.pos.x = 111;
+			this.pos.x = this.STARTING_POINT_FOR_FIRST_PIPE;
 			this.randomizePipe();
 		}
 		this.topPipe.css('transform', 'translate3d(' + this.pos.x + 'em, ' + this.topPipePos + 'em, 0em)');
