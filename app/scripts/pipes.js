@@ -56,15 +56,12 @@ window.Pipe = (function() {
 
 	Pipe.prototype.collision = function() {
 		
-		//console.log(this.game.player.WIDTH);
 		var player = this.game.player.pos; 
-		var playerRadius = (player.HEIGHT + player.WIDTH) / 4;
 
 		if(((this.pos.x - (this.WIDTH_OF_PIPE/2)) < (player.x + (this.game.player.WIDTH/2))) 
 			&& ((this.pos.x + (this.WIDTH_OF_PIPE/2)) > (player.x))) {
 			if (this.pos.x > 30.7 && this.pos.x < 31){
 				score = score + 1;
-				console.log(score);
 			}
 		}
 
@@ -76,12 +73,19 @@ window.Pipe = (function() {
 			this.score();
 			return this.game.gameover();	
 		}
+
+		if (this.pos.x < this.game.WORLD_HEIGHT_WITH_CEILING || 
+			this.pos.x + player.WIDTH > this.game.WORLD_WIDTH ||
+			this.pos.y < this.game.WORLD_HEIGHT_WITH_CEILING ||
+			this.pos.y + player.HEIGHT > this.game.WORLD_HEIGHT_WITH_GROUND) {
+			
+			this.score();
+		}
+
 	};
 
 	Pipe.prototype.score = function() {
 		var sco = score.toString();
-		console.log(sco);
-		console.log(score);
 		document.getElementById("scoreText").innerHTML = sco;
 	};
 

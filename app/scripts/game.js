@@ -12,6 +12,7 @@ window.Game = (function() {
 	var Controls = window.Controls;
 	var Game = function(el) {
 		this.el = el;
+		this.score = 0;
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.pipe = new Pipe(this, 110);
 		this.pipe1 = new Pipe(this, 150);
@@ -173,7 +174,6 @@ backgroundMusic.addEventListener('ended', function(){
 	backgroundMusic.play();
 }, false);
 
-console.log("click");
 function play() {
 	console.log("play");
 	$(".play").hide();
