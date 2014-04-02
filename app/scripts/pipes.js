@@ -58,11 +58,8 @@ window.Pipe = (function() {
 		
 		var player = this.game.player.pos; 
 
-		if(((this.pos.x - (this.WIDTH_OF_PIPE/2)) < (player.x + (this.game.player.WIDTH/2))) 
-			&& ((this.pos.x + (this.WIDTH_OF_PIPE/2)) > (player.x))) {
-			if (this.pos.x > 30.7 && this.pos.x < 31){
-				score = score + 1;
-			}
+		if (this.pos.x > 30.7 && this.pos.x < 31){
+			score = score + 1;
 		}
 
 		if (((this.pos.x - (this.WIDTH_OF_PIPE/2)) < (player.x + (this.game.player.WIDTH/2)))
