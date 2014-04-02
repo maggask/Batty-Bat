@@ -2,8 +2,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 11em;
-	height: 10em;
+	width: 10em;
+	height: 8.9em;
 	overflow: hidden;
 }
 
@@ -32,8 +32,8 @@
 }
 
 .Player-sprite {
-	width: 11em;
-	height: 10em;
+	width: 10em;
+	height: 8.9em;
 }
 
 .Player-move {
@@ -250,7 +250,7 @@ body {
 
 .Ground {
 	position: relative;
-	top: 48.2em;
+	top: 50em;
 	height: 1.8em;
 	width: 300em;
 	background: url("/images/beamground1.png");
