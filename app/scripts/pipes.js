@@ -1,6 +1,7 @@
 window.Pipe = (function() {
 	var Player = window.Player;
-	
+	var score = 0;
+
 	var Pipe = function(game, xpos) {
 		this.game = game;
 		this.xpos = xpos;
@@ -31,6 +32,7 @@ window.Pipe = (function() {
 	Pipe.prototype.reset = function() {
 		// Update UI
 		this.pos.x = this.xpos;
+		score = 0;
 	};
 
 	Pipe.prototype.randomizePipe = function() {
@@ -53,21 +55,34 @@ window.Pipe = (function() {
 	};
 
 	Pipe.prototype.collision = function() {
-		var score = 0;
+		
 		//console.log(this.game.player.WIDTH);
 		var player = this.game.player.pos; 
 		var playerRadius = (player.HEIGHT + player.WIDTH) / 4;
+
+		if(((this.pos.x - (this.WIDTH_OF_PIPE/2)) < (player.x + (this.game.player.WIDTH/2))) 
+			&& ((this.pos.x + (this.WIDTH_OF_PIPE/2)) > (player.x))) {
+			if (this.pos.x > 30.7 && this.pos.x < 31){
+				score = score + 1;
+				console.log(score);
+			}
+		}
 
 		if (((this.pos.x - (this.WIDTH_OF_PIPE/2)) < (player.x + (this.game.player.WIDTH/2)))
 			&& ((this.pos.x + (this.WIDTH_OF_PIPE/2)) > (player.x))
 			&& ( ((this.topPipePos + (this.HEIGHT_OF_PIPE - 5)) > (player.y - (this.game.player.HEIGHT/2))) 
 			|| ((this.botPipePos - 2) < (player.y + (this.game.player.HEIGHT/2))) )) {
 			
+			this.score();
 			return this.game.gameover();	
 		}
-		else if (this.pos.x < this.game.player.pos.x) {
-			score++;
-		}
+	};
+
+	Pipe.prototype.score = function() {
+		var sco = score.toString();
+		console.log(sco);
+		console.log(score);
+		document.getElementById("scoreText").innerHTML = sco;
 	};
 
 	return Pipe;

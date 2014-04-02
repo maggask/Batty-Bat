@@ -60,7 +60,7 @@ window.Player = (function() {
 
 		gravity++;
 	};
-
+	
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < this.game.WORLD_HEIGHT_WITH_CEILING || 
 			this.pos.x + this.WIDTH > this.game.WORLD_WIDTH ||
@@ -69,6 +69,6 @@ window.Player = (function() {
 			return this.game.gameover();
 		}
 	};
-
+	
 	return Player;
 })();
